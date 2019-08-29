@@ -97,6 +97,7 @@ public class A1Example {
 		}
 		
 		return cur_min;
+		
 	}
 
 	/* findValueMax
