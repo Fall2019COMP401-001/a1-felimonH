@@ -63,7 +63,7 @@ public class A1Novice {
 			 }
 			// thing that prints 
 			 
-			 System.out.println(firstI + ". " + last + ": " + cost);
+			 System.out.println(firstI + ". " + last + ": " + String.format("%.2f", cost));
 		}
 	}
 }
