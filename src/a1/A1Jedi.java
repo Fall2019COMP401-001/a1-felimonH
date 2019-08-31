@@ -18,7 +18,11 @@ int storeItems = scan.nextInt();
 String[] types = new String[storeItems];
 int[] sold = new int[storeItems];
 int[] customers = new int[storeItems];
-	
+
+//mishap variable list  for those dumb people who write the name more than once
+int[] mishap = new int[storeItems];
+
+
 	//trash array for cost
 	double[] cost = new double[storeItems];
 
@@ -27,6 +31,7 @@ for (int i = 0; i < storeItems; i++) {
 	types[i] = scan.next();
 	sold[i] = 0;
 	customers[i] = 0;
+	mishap[i] = 0;
 	//trash scan for cost
 	cost[i] = scan.nextDouble();
 }	
@@ -34,8 +39,12 @@ for (int i = 0; i < storeItems; i++) {
 int people = scan.nextInt();
 
 //create loop that disregards name gets number of items per person and 
+
+//mishap loop
 for (int i = 0; i < people; i++) {
-	
+	for (int d = 0; d < storeItems; d++) {
+		mishap[d] = i - 1;
+	}
 	
 	// get names to disregard
 		String first = scan.next();
@@ -52,16 +61,23 @@ for (int i = 0; i < people; i++) {
 			
 		//get item name
 			String itemName = scan.next();
+		
 			 	
 		//loop that scan amount of food and food item type and stores it
 			for (int d = 0; d < storeItems; d++) {
+				
 				if (itemName.equals(types[d])) {
 					sold[d] = sold[d] + amount;
+					
+					mishap[d]++;
+					if (mishap[d] == i) {
 					customers[d] = customers[d] + 1;
+					}
 				}
-			}
+				
+			} 
 		}
-}
+} 
 		
 
 		
